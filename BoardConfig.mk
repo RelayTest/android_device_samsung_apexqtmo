@@ -154,7 +154,7 @@ TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/msm8960-common/power/power
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 5515509760
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/apexqtmo/include
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/apexqtmo/include
 
 # inherit from the proprietary version
 -include vendor/samsung/apexqtmo/BoardConfigVendor.mk
@@ -168,6 +168,13 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogen_apexq_defconfig
+
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 5515509760
+TARGET_RECOVERY_FSTAB := device/samsung/apexqtmo/rootdir/etc/fstab.qcom
 
 # Audio
 BOARD_HAVE_DOCK_USBAUDIO := true
