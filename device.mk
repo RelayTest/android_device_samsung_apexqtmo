@@ -243,6 +243,10 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     ueventd.qcom.rc
 
+# Samsung symbols
+PRODUCT_PACKAGES += \
+    libsamsung_symbols
+
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
