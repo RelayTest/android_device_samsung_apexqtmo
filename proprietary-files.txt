@@ -131,10 +131,7 @@ etc/firmware/wcnss.b05
 etc/firmware/wcnss.mdt
 
 # Media
-lib/libdivxdrm.so
 lib/libdivxdrmdecrypt.so
 lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
-lib/libmmparser.so
-lib/libmmosal.so
 lib/libwvm.so
