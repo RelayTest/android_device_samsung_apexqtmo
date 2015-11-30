@@ -248,8 +248,6 @@ PRODUCT_PACKAGES += \
     libsamsung_symbols
 
 # USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
 
