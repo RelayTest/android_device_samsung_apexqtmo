@@ -5,6 +5,30 @@ etc/thermald.conf
 lib/libcordon.so
 lib/libqc-opt.so
 
+# GPU
+lib/egl/eglsubAndroid.so
+lib/egl/libEGL_adreno200.so
+lib/egl/libGLESv1_CM_adreno200.so
+lib/egl/libGLESv2_adreno200.so
+lib/egl/libGLESv2S3D_adreno200.so
+lib/egl/libq3dtools_adreno200.so
+lib/libc2d2_z180.so
+lib/libC2D2.so
+lib/libCB.so
+lib/libgsl.so
+lib/libOpenCL.so
+lib/libOpenVG.so
+lib/libsc-a2xx.so
+
+# GPU firmware
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
+etc/firmware/a225p5_pm4.fw
+etc/firmware/vidc_1080p.fw
+
 # Audio
 lib/libacdbloader.so
 lib/libaudcal.so
@@ -16,6 +40,7 @@ bin/btnvtool
 bin/hci_qcomm_init
 
 # Camera
+bin/mm-qcamera-daemon
 lib/hw/camera.vendor.msm8960.so
 lib/libchromatix_s5k3l1yx_default_video.so
 lib/libchromatix_s5k3l1yx_preview.so
@@ -25,11 +50,19 @@ lib/libgemini.so
 lib/libimage-jpeg-dec-omx-comp.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-omx-common.so
+lib/libmmcamera_faceproc.so
 lib/libmmcamera_frameproc.so
 lib/libmmcamera_statsproc30.so
 lib/libmmjpeg.so
+lib/libmmmpod.so
+lib/libmmstereo.so
 lib/libmmstillomx.so
 lib/liboemcamera.so
+lib/libsecnativefeature.so
+
+# Camera firmware
+cameradata/datapattern_420sp.yuv
+cameradata/datapattern_front_420sp.yuv
 
 # NFC
 lib/hw/nfc.msm8960.so
@@ -80,6 +113,8 @@ lib/libakmd.so
 lib/libinvensense_hal.so
 lib/libmllite.so
 lib/libmlplatform.so
+lib/libmplmpu.so
+lib/libyamaha.so
 
 # Wifi
 etc/hostapd/hostapd.accept
@@ -94,3 +129,12 @@ etc/firmware/wcnss.b02
 etc/firmware/wcnss.b04
 etc/firmware/wcnss.b05
 etc/firmware/wcnss.mdt
+
+# Media
+lib/libdivxdrm.so
+lib/libdivxdrmdecrypt.so
+lib/libI420colorconvert.so
+lib/libmm-color-convertor.so
+lib/libmmparser.so
+lib/libmmosal.so
+lib/libwvm.so
