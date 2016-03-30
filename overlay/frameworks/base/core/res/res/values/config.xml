@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2011, The Android Open Source Project
+** Copyright 2014, The CyanogenMod Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -17,59 +17,34 @@
 */
 -->
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds. -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
 
-    <bool name="config_enableWifiDisplay">true</bool>
+    <!-- Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
 
-    <integer name="config_keyboardBrightnessSettingDefault">1</integer>
+    <!-- Whether UI for multi user should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
 
-    <!-- Indicate whether the lid state impacts the accessibility of
-        the physical keyboard. 0 means it doesn't, 1 means it is accessible
-        when the lid is open, 2 means it is accessible when the lid is
-        closed. The default is 0. -->
-    <integer name="config_lidKeyboardAccessibility">1</integer>
-
-    <!-- The number of degrees to rotate the display when the keyboard is open.
-         A value of -1 means no change in orientation by default. -->
-    <integer name="config_lidOpenRotation">90</integer>
-
-    <!-- An Array of "[ConnectivityManager connectionType],
-         [# simultaneous connection types]"  -->
-    <string-array translatable="false" name="radioAttributes">
-        <item>"1,1"</item>
-        <item>"0,1"</item>
-        <item>"7,1"</item>
+    <!-- Configure wifi tcp buffersizes in the form:
+         rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
+    <string name="config_wifi_tcp_buffers" translatable="false">524288,1048576,2097152,262144,524288,1048576</string>
+    <!-- Configure mobile tcp buffer sizes in the form:
+         rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
+         If no value is found for the rat-name in use, the system default will be applied.
+    -->
+    <string-array name="config_mobile_tcp_buffers">
+        <item>lte:524288,1048576,2560000,524288,1048576,2560000</item>
+        <item>umts:4094,87380,704512,4096,16384,110208</item>
+        <item>hspa:4092,87380,704512,4096,16384,262144</item>
+        <item>hsupa:4092,87380,704512,4096,16384,262144</item>
+        <item>hsdpa:4092,87380,704512,4096,16384,110208</item>
+        <item>hspap:4092,87380,704512,4096,16384,262144</item>
+        <item>edge:4093,26280,35040,4096,16384,35040</item>
+        <item>gprs:4096,30000,30000,4096,8760,11680</item>
+        <item>evdo:4094,87380,262144,4096,16384,262144</item>
     </string-array>
 
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         USB interfaces.  If the device doesn't want to support tething over USB this should
-         be empty.  An example would be "usb.*" -->
-    <string-array translatable="false" name="config_tether_usb_regexs">
-        <item>"rndis0"</item>
-        <item>"usb0"</item>
-    </string-array>
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
-         should be empty.  An example would be "softap.*" -->
-    <string-array translatable="false" name="config_tether_wifi_regexs">
-        <item>"wlan0"</item>
-        <item>"softap.*"</item>
-    </string-array>
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
-         should be empty. -->
-    <string-array translatable="false" name="config_tether_bluetooth_regexs">
-        <item>"bt-pan"</item>
-    </string-array>
-
-    <!-- We dont have different firmware for wifi modes, prevent reloading it -->
-    <bool name="config_wifiApFirmwareReload">false</bool>
-
-    <!-- Indicate whether the SD card is accessible without removing the battery. -->
-    <bool name="config_batterySdCardAccessibility">true</bool>
-
+    <!-- Control whether a car dock event should override the default bluetooth
+         audio routing, FORCE_BT_CAR_DOCK, with an analog dock, FORCE_ANALOG_DOCK. -->
+    <bool name="config_forceAnalogCarDock">true</bool>
 </resources>
