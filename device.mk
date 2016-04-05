@@ -40,8 +40,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     50bluetooth \
     60compass \
-    init.target.rc \
-    wifimac.sh
+    init.target.rc
 
 # Logo
 PRODUCT_COPY_FILES += \
@@ -76,10 +75,6 @@ PRODUCT_PACKAGES += \
     WCNSS_cfg.dat \
     WCNSS_qcom_cfg.ini \
     WCNSS_qcom_wlan_nv.bin
-
-# Wifi
-PRODUCT_PACKAGES += \
-    macloader
 
 # Audio configuration
 PRODUCT_COPY_FILES += \

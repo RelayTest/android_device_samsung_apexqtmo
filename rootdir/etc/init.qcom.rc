@@ -243,6 +243,9 @@ on post-fs
     chown system radio /sys/block/mmcblk0/bkops_en
     chmod 0664 /sys/block/mmcblk0/bkops_en
 
+    # WiFi MAC
+    copy /efs/wifi/.mac.info /sys/devices/platform/wcnss_wlan.0/wcnss_mac_addr
+
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system

@@ -169,8 +169,5 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 TARGET_OTA_ASSERT_DEVICE := apexqtmo
 TARGET_BOARD_INFO_FILE ?= device/samsung/apexqtmo/board-info.txt
 
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/apexqtmo
-
 # inherit from the proprietary version
 -include vendor/samsung/apexqtmo/BoardConfigVendor.mk
