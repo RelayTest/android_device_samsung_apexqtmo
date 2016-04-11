@@ -37,11 +37,14 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 zcache
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01500000
 BOARD_KERNEL_PAGESIZE := 2048
+TARGET_KERNEL_SOURCE := kernel/samsung/apexqtmo
+TARGET_KERNEL_CONFIG := cyanogen_apexq_defconfig
+
 
 # Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(HOST_OS),linux)
-  WITH_DEXPREOPT := true
-endif
+#ifeq ($(HOST_OS),linux)
+#  WITH_DEXPREOPT := true
+#endif
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -66,7 +69,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # CMHW
-BOARD_HARDWARE_CLASS += device/samsung/msm8960-common/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/apexqtmo/cmhw
 
 # Display
 BOARD_USES_LEGACY_MMAP := true
@@ -83,7 +86,7 @@ MALLOC_IMPL := dlmalloc
 EXTENDED_FONT_FOOTPRINT := true
 
 # Includes
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/msm8960-common/include
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/apexqtmo/include
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -105,7 +108,7 @@ BOARD_RECOVERY_SWIPE := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += device/samsung/msm8960-common/sepolicy
+BOARD_SEPOLICY_DIRS += device/samsung/apexqtmo/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     bluetooth.te \
@@ -147,7 +150,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 
 # Build our own PowerHAL
 TARGET_POWERHAL_VARIANT :=
-TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/msm8960-common/power/power_ext.c
+TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/apexqtmo/power/power_ext.c
 
 # <<< msm8960-common/BoardConfigCommon.mk
 
@@ -165,9 +168,6 @@ TARGET_BOARD_INFO_FILE ?= device/samsung/apexqtmo/board-info.txt
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
-
-# Kernel
-TARGET_KERNEL_CONFIG := cyanogen_apexq_defconfig
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
@@ -203,11 +203,12 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_${BOARD_WLAN_DEVICE}
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_${BOARD_WLAN_DEVICE}
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/prima_wlan.ko"
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/prima_wlan/parameters/fwpath"
-WIFI_DRIVER_MODULE_NAME     := "prima_wlan"
 WIFI_DRIVER_FW_PATH_STA     := "sta"
 WIFI_DRIVER_FW_PATH_AP      := "ap"
+
+# RIL
+BOARD_RIL_CLASS := ../../../device/samsung/apexqtmo/ril
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/apexqtmo
