@@ -119,7 +119,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
     ro.opengles.version=131072 \
-    camera2.portability.force_api=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data_netmgrd_nint=16 \
@@ -262,6 +261,23 @@ PRODUCT_PACKAGES += \
     macloader \
     wpa_supplicant \
     wpa_supplicant.conf
+
+# NFC Support
+PRODUCT_PACKAGES += \
+    libnfc \
+    libnfc_jni \
+    Nfc \
+    Tag \
+    com.android.nfc_extras
+
+# NFCEE access control
+ifeq ($(TARGET_BUILD_VARIANT),user)
+    NFCEE_ACCESS_PATH := device/samsung/apexqtmo/nfc/nfcee_access.xml
+else
+    NFCEE_ACCESS_PATH := device/samsung/apexqtmo/nfc/nfcee_access_debug.xml
+endif
+PRODUCT_COPY_FILES += \
+    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 # Common Qualcomm
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
