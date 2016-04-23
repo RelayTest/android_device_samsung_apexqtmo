@@ -79,6 +79,9 @@ TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_NO_ADAPTIVE_PLAYBACK := true
 TARGET_NO_INITLOGO := true
 
+# Sensors
+TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
 # Use dlmalloc instead of jemalloc for mallocs
 MALLOC_IMPL := dlmalloc
 
