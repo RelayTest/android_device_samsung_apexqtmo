@@ -218,22 +218,16 @@ public class SamsungQualcommRIL extends RIL implements CommandsInterface {
             dc = new DriverCall();
 
             dc.state = DriverCall.stateFromCLCC(p.readInt());
-            dc.index = p.readInt() & 0xff;
+            dc.index = p.readInt();
             dc.TOA = p.readInt();
             dc.isMpty = (0 != p.readInt());
             dc.isMT = (0 != p.readInt());
             dc.als = p.readInt();
             voiceSettings = p.readInt();
-            if (isGSM){
-                p.readInt();
-            }
             dc.isVoice = (0 == voiceSettings) ? false : true;
+            if (!isGSM || mRilVersion < 7 ? false : true)
+                 p.readInt();
             dc.isVoicePrivacy = (0 != p.readInt());
-            if (isGSM) {
-                p.readInt();
-                p.readInt();
-                p.readString();
-            }
             dc.number = p.readString();
             int np = p.readInt();
             dc.numberPresentation = DriverCall.presentationFromCLIP(np);
