@@ -626,4 +626,16 @@ public class SamsungQualcommRIL extends RIL implements CommandsInterface {
             result.sendToTarget();
         }
     }
+
+    // This call causes ril to crash the socket, stopping further communication
+    @Override
+    public void setDataAllowed(boolean allowed, Message result) {
+        riljLog("Ignoring call to 'setDataAllowed'");
+        if (result != null) {
+            CommandException ex = new CommandException(
+                CommandException.Error.REQUEST_NOT_SUPPORTED);
+            AsyncResult.forMessage(result, null, ex);
+            result.sendToTarget();
+        }
+    }
 }
